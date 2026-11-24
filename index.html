@@ -1,120 +1,141 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#d92820">
-  <meta name="description" content="BAKE N FRY baked goods ordering app">
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <title>BAKE N FRY | Order Online</title>
-  <style>
-    :root{--red:#d92820;--yellow:#ffd43b;--ink:#292522;--muted:#766f68;--cream:#fff9ed;--line:#eee2d2}
-    *{box-sizing:border-box} body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
-    header{background:var(--red);color:white;padding:18px 16px 16px;position:sticky;top:0;z-index:5;box-shadow:0 3px 14px #0002}
-    .head{max-width:900px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{font-weight:950;letter-spacing:.7px;font-size:21px}.tag{font-size:11px;color:#ffe9a1;letter-spacing:2px;font-weight:800}
-    button{border:0;border-radius:12px;padding:11px 14px;font-weight:800;cursor:pointer;font-size:14px}
-    .manageBtn{background:var(--yellow);color:#35251a}.main{max-width:900px;margin:auto;padding:18px 14px 90px}
-    .hero{background:linear-gradient(120deg,#ffe36c,#ffbd37);border-radius:20px;padding:22px;margin-bottom:20px}
-    .hero h1{font-size:27px;line-height:1.12;margin:0 0 8px}.hero p{margin:0;color:#5b3b16}
-    .sectionTitle{display:flex;align-items:center;justify-content:space-between;margin:20px 2px 12px}
-    h2{font-size:20px;margin:0}.muted{color:var(--muted);font-size:13px}
-    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
-    .product{background:white;border:1px solid var(--line);border-radius:17px;padding:14px;box-shadow:0 3px 12px #4d30100a}
-    .food{height:88px;border-radius:13px;background:#fff0c4;display:grid;place-items:center;font-size:47px;margin-bottom:10px}
-    .product h3{font-size:16px;margin:0 0 3px}.price{font-weight:900;color:var(--red);margin-bottom:10px}
-    .add{background:var(--red);color:white;width:100%}
-    .panel{background:white;border:1px solid var(--line);border-radius:18px;padding:16px;margin-top:18px}
-    .cartrow,.orderrow{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
-    .cartrow:last-child,.orderrow:last-child{border:0}.qty{display:flex;align-items:center;gap:8px}
-    .qty button,.small{background:#fff0c4;padding:5px 10px}
-    input{width:100%;padding:13px;border:1px solid #ddcdb9;border-radius:11px;font:inherit;margin:5px 0 12px;background:#fff}
-    label{font-size:13px;font-weight:800}.primary{background:var(--red);color:white;width:100%;padding:14px}
-    .secondary{background:#fff0c4;color:#4c3218}.hidden{display:none!important}
-    .total{display:flex;justify-content:space-between;font-weight:950;font-size:18px;padding:12px 0}
-    .notice{background:#fff5d9;border:1px solid #f0d88c;padding:12px;border-radius:12px;font-size:13px;color:#604a20}
-    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tab{background:#f3e9db}.tab.active{background:var(--red);color:white}
-    .status{font-size:12px;font-weight:800;background:#fff0c4;padding:5px 9px;border-radius:20px}
-    footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
-    @media(min-width:650px){.hero h1{font-size:34px}.food{height:110px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#d92820">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>BAKE N FRY</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff9ed;color:#292522;font-family:Arial,sans-serif}
+header{background:#d92820;color:white;padding:18px;display:flex;justify-content:space-between;align-items:center}
+h1{font-size:23px;margin:0}
+button{border:0;border-radius:10px;padding:12px;font-weight:bold;cursor:pointer}
+.manage{background:#ffd43b}
+main{max-width:850px;margin:auto;padding:18px}
+.hero{background:#ffd43b;padding:22px;border-radius:18px;margin-bottom:20px}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.product,.panel{background:white;padding:15px;border-radius:15px;border:1px solid #eee2d2}
+.food{font-size:48px;text-align:center;background:#fff0c4;border-radius:12px;padding:12px}
+.price{color:#d92820;font-weight:bold;margin:8px 0}
+.add,.primary{background:#d92820;color:white;width:100%}
+.panel{margin-top:20px}
+input{width:100%;padding:13px;margin:6px 0 12px;border:1px solid #ccc;border-radius:9px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #eee}
+.hidden{display:none}
+.total{font-size:20px;font-weight:bold;display:flex;justify-content:space-between;padding:15px 0}
+.muted{color:#766f68;font-size:13px}
+.order{background:#fff5d9;padding:12px;border-radius:12px;margin:12px 0}
+@media(min-width:600px){.products{grid-template-columns:repeat(3,1fr)}}
+</style>
 </head>
 <body>
-<header><div class="head"><div><div class="brand">BAKE N FRY</div><div class="tag">FRESHLY BAKED • MADE WITH LOVE</div></div><button class="manageBtn" id="manageOpen">MANAGE</button></div></header>
-<main class="main">
-  <section id="shopView">
-    <div class="hero"><h1>Freshly baked favorites, just a tap away.</h1><p>Choose your treats and place your order with BAKE N FRY.</p></div>
-    <div class="sectionTitle"><h2>Our Products</h2><span class="muted">Tap ADD TO CART</span></div>
-    <div class="products" id="products"></div>
-    <section class="panel">
-      <div class="sectionTitle"><h2>Your Cart</h2><span class="status" id="cartCount">0 items</span></div>
-      <div id="cartItems" class="muted">Your cart is empty.</div>
-      <div class="total"><span>Total</span><span id="cartTotal">₱0.00</span></div>
-      <button class="primary" id="checkoutBtn">PROCEED TO CHECKOUT</button>
-    </section>
-    <section class="panel hidden" id="checkoutPanel">
-      <h2>Customer Details</h2>
-      <p class="muted">Please check your order before submitting.</p>
-      <form id="checkoutForm">
-        <label for="custName">FULL NAME</label><input id="custName" required autocomplete="name" placeholder="Your name">
-        <label for="custAddress">DELIVERY ADDRESS</label><input id="custAddress" required autocomplete="street-address" placeholder="Complete address">
-        <label for="custPhone">CONTACT NUMBER</label><input id="custPhone" required type="tel" autocomplete="tel" placeholder="09XXXXXXXXX">
-        <div class="total"><span>Order total</span><span id="checkoutTotal">₱0.00</span></div>
-        <button class="primary" type="submit">PLACE ORDER</button>
-      </form>
-    </section>
-  </section>
-  <section id="manageView" class="hidden">
-    <div class="sectionTitle"><h2>Manage Orders</h2><button class="secondary" id="backShop">BACK TO SHOP</button></div>
-    <div class="notice">Orders placed on this device are saved in this browser. With GitHub Pages and no shared backend, customer orders from other phones will NOT automatically appear here, and remote push alerts cannot be delivered.</div>
-    <div class="tabs"><button class="tab active" data-filter="All">All Orders</button><button class="tab" data-filter="Pending">Pending</button><button class="tab" data-filter="Preparing">Preparing</button><button class="tab" data-filter="Completed">Completed</button></div>
-    <div id="ordersList"></div>
-    <button class="secondary" id="enableNotify">ENABLE THIS DEVICE'S NOTIFICATIONS</button>
-    <p class="muted" id="notifyState">Notifications require permission and browser support.</p>
-  </section>
+<header>
+<div><h1>BAKE N FRY</h1><small>FRESHLY BAKED • MADE WITH LOVE</small></div>
+<button class="manage" onclick="showManage()">MANAGE</button>
+</header>
+<main>
+<section id="shop">
+<div class="hero">
+<h2>Freshly baked favorites, just a tap away.</h2>
+<p>Choose your treats and place your order with BAKE N FRY.</p>
+</div>
+<h2>Our Products</h2>
+<div class="products" id="products"></div>
+<div class="panel">
+<h2>Your Cart</h2>
+<div id="cart">Your cart is empty.</div>
+<div class="total"><span>Total</span><span id="total">₱0.00</span></div>
+<button class="primary" onclick="checkout()">PROCEED TO CHECKOUT</button>
+</div>
+<div class="panel hidden" id="checkoutPanel">
+<h2>Customer Details</h2>
+<form id="orderForm">
+<label>Name</label><input id="name" required>
+<label>Address</label><input id="address" required>
+<label>Contact Number</label><input id="phone" type="tel" required>
+<button class="primary">PLACE ORDER</button>
+</form>
+</div>
+</section>
+<section id="manage" class="hidden">
+<h2>Manage Orders</h2>
+<button onclick="showShop()">BACK TO SHOP</button>
+<div id="orders"></div>
+</section>
 </main>
-<footer>BAKE N FRY • Ordering App</footer>
 <script>
 const products=[
- {name:"Ensaymada",price:45,emoji:"🧁"},{name:"Pan de Sal",price:5,emoji:"🥖"},
- {name:"Pan de Coco",price:12,emoji:"🥥"},{name:"Kababayan",price:10,emoji:"🧁"},
- {name:"Spanish Bread",price:12,emoji:"🥐"},{name:"Chocolate Cupcake",price:25,emoji:"🧁"}
+{name:"Ensaymada",price:45,emoji:"🧁"},
+{name:"Pan de Sal",price:5,emoji:"🥖"},
+{name:"Pan de Coco",price:12,emoji:"🥥"},
+{name:"Kababayan",price:10,emoji:"🧁"},
+{name:"Spanish Bread",price:12,emoji:"🥐"},
+{name:"Chocolate Cupcake",price:25,emoji:"🧁"}
 ];
-let cart={}, filter="All";
-const peso=n=>"₱"+Number(n).toFixed(2);
-const $=id=>document.getElementById(id);
-function renderProducts(){$("products").innerHTML=products.map((p,i)=>`<article class="product"><div class="food">${p.emoji}</div><h3>${p.name}</h3><div class="price">${peso(p.price)}</div><button class="add" data-add="${i}">ADD TO CART</button></article>`).join("");}
+let cart={};
+const money=n=>"₱"+n.toFixed(2);
+function renderProducts(){
+document.getElementById("products").innerHTML=products.map((p,i)=>`
+<div class="product">
+<div class="food">${p.emoji}</div>
+<h3>${p.name}</h3>
+<div class="price">${money(p.price)}</div>
+<button class="add" onclick="add(${i})">ADD TO CART</button>
+</div>`).join("");
+}
+function add(i){cart[i]=(cart[i]||0)+1;renderCart()}
 function renderCart(){
- const entries=Object.entries(cart).filter(([i,q])=>q>0);
- $("cartCount").textContent=entries.reduce((s,[i,q])=>s+q,0)+" items";
- $("cartItems").innerHTML=entries.length?entries.map(([i,q])=>`<div class="cartrow"><div><b>${products[i].name}</b><div class="muted">${peso(products[i].price)} each</div></div><div class="qty"><button data-minus="${i}">−</button><b>${q}</b><button data-plus="${i}">+</button></div><b>${peso(products[i].price*q)}</b></div>`).join(""):"Your cart is empty.";
- const total=entries.reduce((s,[i,q])=>s+products[i].price*q,0);$("cartTotal").textContent=peso(total);$("checkoutTotal").textContent=peso(total);
+let entries=Object.entries(cart).filter(([i,q])=>q>0);
+let total=entries.reduce((s,[i,q])=>s+products[i].price*q,0);
+document.getElementById("cart").innerHTML=entries.length?entries.map(([i,q])=>`
+<div class="row"><span>${products[i].name} × ${q}</span>
+<span><button onclick="change(${i},-1)">−</button>
+<button onclick="change(${i},1)">+</button>
+${money(products[i].price*q)}</span></div>`).join(""):"Your cart is empty.";
+document.getElementById("total").textContent=money(total);
 }
-function getOrders(){try{return JSON.parse(localStorage.getItem("bnf_orders")||"[]")}catch(e){return []}}
-function saveOrders(a){localStorage.setItem("bnf_orders",JSON.stringify(a))}
-function orderTotal(items){return items.reduce((s,x)=>s+x.price*x.qty,0)}
-function renderOrders(){
- const orders=getOrders().filter(o=>filter==="All"||o.status===filter);
- $("ordersList").innerHTML=orders.length?orders.slice().reverse().map(o=>`<article class="panel"><div class="orderrow"><b>${o.id}</b><span class="status">${o.status}</span></div><b>${escapeHtml(o.name)}</b><div class="muted">${escapeHtml(o.phone)} • ${escapeHtml(o.address)}</div>${o.items.map(x=>`<div class="orderrow"><span>${escapeHtml(x.name)} × ${x.qty}</span><b>${peso(x.price*x.qty)}</b></div>`).join("")}<div class="total"><span>Total</span><span>${peso(orderTotal(o.items))}</span></div><div class="muted">${new Date(o.created).toLocaleString()}</div><div class="tabs"><button class="small" data-status="${o.id}|Pending">Pending</button><button class="small" data-status="${o.id}|Preparing">Preparing</button><button class="small" data-status="${o.id}|Completed">Completed</button></div></article>`).join(""):"<p class='muted'>No orders yet.</p>";
+function change(i,n){cart[i]=Math.max(0,(cart[i]||0)+n);renderCart()}
+function checkout(){
+if(!Object.values(cart).some(q=>q>0)){alert("Your cart is empty.");return}
+document.getElementById("checkoutPanel").classList.remove("hidden");
 }
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-$("products").addEventListener("click",e=>{let i=e.target.dataset.add;if(i!==undefined){cart[i]=(cart[i]||0)+1;renderCart();}});
-$("cartItems").addEventListener("click",e=>{let i=e.target.dataset.plus??e.target.dataset.minus;if(i!==undefined){cart[i]=Math.max(0,(cart[i]||0)+(e.target.dataset.plus!==undefined?1:-1));renderCart();}});
-$("checkoutBtn").onclick=()=>{if(!Object.values(cart).some(q=>q>0)){alert("Your cart is empty.");return;}$("checkoutPanel").classList.toggle("hidden");$("checkoutPanel").scrollIntoView({behavior:"smooth"});};
-$("checkoutForm").onsubmit=async e=>{
- e.preventDefault();const items=Object.entries(cart).filter(([i,q])=>q>0).map(([i,q])=>({name:products[i].name,price:products[i].price,qty:q}));
- const orders=getOrders();const order={id:"BNF-"+(orders.length+1),name:$("custName").value.trim(),address:$("custAddress").value.trim(),phone:$("custPhone").value.trim(),items,status:"Pending",created:new Date().toISOString()};
- orders.push(order);saveOrders(orders);cart={};renderCart();$("checkoutForm").reset();$("checkoutPanel").classList.add("hidden");
- alert("Thank you! Your order number is "+order.id+".");
- if("serviceWorker" in navigator && Notification.permission==="granted"){try{const reg=await navigator.serviceWorker.ready;await reg.showNotification("BAKE N FRY order placed",{body:order.id+" • "+order.name+" • "+peso(orderTotal(items)),icon:"icons/icon-192.png"});}catch(err){}}
+function getOrders(){return JSON.parse(localStorage.getItem("bnf_orders")||"[]")}
+document.getElementById("orderForm").onsubmit=function(e){
+e.preventDefault();
+let orders=getOrders();
+let items=Object.entries(cart).filter(([i,q])=>q>0).map(([i,q])=>({name:products[i].name,qty:q,price:products[i].price}));
+let order={id:"BNF-"+(orders.length+1),name:document.getElementById("name").value,address:document.getElementById("address").value,phone:document.getElementById("phone").value,items,status:"Pending",date:new Date().toLocaleString()};
+orders.push(order);
+localStorage.setItem("bnf_orders",JSON.stringify(orders));
+alert("Order submitted! Order number: "+order.id);
+cart={};renderCart();this.reset();
+document.getElementById("checkoutPanel").classList.add("hidden");
 };
-$("manageOpen").onclick=()=>{ $("shopView").classList.add("hidden");$("manageView").classList.remove("hidden");renderOrders();};
-$("backShop").onclick=()=>{$("manageView").classList.add("hidden");$("shopView").classList.remove("hidden");};
-document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{filter=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x===b));renderOrders();});
-$("ordersList").addEventListener("click",e=>{if(e.target.dataset.status){const [id,status]=e.target.dataset.status.split("|");const a=getOrders();const o=a.find(x=>x.id===id);if(o){o.status=status;saveOrders(a);renderOrders();}}});
-$("enableNotify").onclick=async()=>{if(!("Notification" in window)){$("notifyState").textContent="Notifications are not supported in this browser.";return;}const p=await Notification.requestPermission();$("notifyState").textContent=p==="granted"?"Notifications enabled on this device.":"Notification permission: "+p;};
-if("serviceWorker" in navigator && location.protocol!=="file:"){navigator.serviceWorker.register("./service-worker.js").catch(()=>{});}
+function showManage(){
+document.getElementById("shop").classList.add("hidden");
+document.getElementById("manage").classList.remove("hidden");
+renderOrders();
+}
+function showShop(){
+document.getElementById("manage").classList.add("hidden");
+document.getElementById("shop").classList.remove("hidden");
+}
+function renderOrders(){
+let orders=getOrders();
+document.getElementById("orders").innerHTML=orders.length?orders.slice().reverse().map(o=>`
+<div class="order"><h3>${o.id} — ${o.status}</h3>
+<b>${o.name}</b><p>${o.address}</p><p>${o.phone}</p>
+${o.items.map(i=>`<div class="row">${i.name} × ${i.qty}<b>${money(i.price*i.qty)}</b></div>`).join("")}
+</div>`).join(""):"No orders yet.";
+}
 renderProducts();renderCart();
+if("serviceWorker" in navigator){
+navigator.serviceWorker.register("./service-worker.js").catch(()=>{});
+}
 </script>
-</body></html>
+</body>
+</html>
